@@ -1,21 +1,72 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "~@flaticon/flaticon-uicons/css/all/all";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Connect */
+.connect-title{
+    @apply text-3xl text-center text-orange-600 drop-shadow-sm font-bold;
+}
+.connect-subtitle{
+    @apply text-lg text-center text-zinc-200 opacity-70 mt-1;
+}
+.connect-label-container{
+    @apply flex flex-col gap-2 my-5;
+}
+.connect-label{
+    @apply flex items-center w-full bg-zinc-800 rounded-full p-3;
+}
+.connect-input{
+    @apply w-full h-full bg-transparent text-white outline-none indent-3;
+}
+.connect-textarea{
+    @apply bg-zinc-800 text-white outline-none h-[200px] p-5 rounded-xl drop-shadow-md resize-none;
+}
+.connect-input-icon{
+    @apply flex items-center justify-center text-orange-600 p-1;
+}
+.connect-submit{
+    @apply text-white bg-orange-900 hover:bg-orange-950 w-full py-3 rounded-full transition-all;
+}
+.connect-option{
+    @apply block antialiased w-max tracking-widest text-orange-500 font-bold opacity-70 hover:opacity-100 text-center mt-3 mx-auto transition-all;
+}
+.connect-footer{
+    @apply text-white opacity-50 mt-3 block w-max mx-auto cursor-default;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+/* Page (universal) */
+.page{
+    @apply flex bg-gradient-to-br from-orange-950 to-cyan-950 h-svh w-svw;
+}
+.page-container{
+    @apply bg-zinc-900 backdrop-blur-md rounded-xl shadow-lg p-5 md:p-10 pb-5 my-auto mx-auto w-11/12 md:w-5/12 lg:w-4/12 xl:w-3/12;
+}
+.page-container-wider{
+    @apply bg-zinc-900 backdrop-blur-md rounded-xl shadow-lg p-5 md:p-10 pb-5 my-auto mx-auto w-11/12 md:w-6/12 lg:w-5/12 xl:w-4/12;
+}
+.page-container-widest{
+    @apply bg-zinc-900 backdrop-blur-md rounded-xl shadow-lg p-5 md:p-10 pb-5 my-auto mx-auto w-11/12 md:w-10/12 lg:w-9/12 xl:w-7/12;
+}
+.home-container{
+    @apply bg-zinc-900 backdrop-blur-md rounded-xl shadow-lg p-5 md:p-10 pb-5 my-auto mx-auto w-11/12 md:w-11/12 lg:w-10/12 xl:w-8/12;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.page-btn{
+    @apply flex items-center gap-x-2 justify-center bg-white bg-opacity-10 text-zinc-200 hover:bg-opacity-50 hover:text-black p-2 rounded transition-all;
+}
+
+/* Messages */
+.messages-container{
+    @apply flex flex-col gap-5 md:grid md:grid-cols-2 xl:grid-cols-3 overflow-y-scroll h-max max-h-[330px] md:max-h-[370px];
+}
+.message{
+    @apply flex flex-col justify-center p-5 bg-orange-800 w-full h-full rounded-xl drop-shadow-md
+}
+.message-time{
+    @apply text-xs text-center text-white opacity-50 mb-1;
+}
+.message-text{
+    @apply text-zinc-100 antialiased opacity-90 text-center;
 }
