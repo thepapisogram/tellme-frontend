@@ -3,9 +3,13 @@ import { useState, useEffect, use } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import api from "@/app/api";
+import Cookies from "js-cookie";
 import Logo from "@/app/components/logo";
 
 export default function Home({ params }) {
+  // remove temp cookie for tracking 'send again'
+  Cookies.remove('temp');
+
   const router = useRouter();
   const resolvedParams = use(params);
   const [username] = useState(resolvedParams.user);
@@ -29,7 +33,8 @@ export default function Home({ params }) {
       .post(`${api.send.message}${username}`, { message })
       .then((res) => {
         if(res.data === "sent"){
-          router.push(`/send/success?username=${username}`);
+          Cookies.set("temp", username);
+          router.push(`/send/success`);
         }
       })
       .catch((error) => {

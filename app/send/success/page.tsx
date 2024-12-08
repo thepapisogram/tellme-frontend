@@ -1,6 +1,6 @@
 "use client"
 import { useState, useEffect } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import Link from "next/link";
 import Logo from "@/app/components/logo";
@@ -15,8 +15,7 @@ export default function Home() {
   }, []);
 
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const username = searchParams.get('username');
+  const username = Cookies.get('temp');
 
   if(!username){
       setTimeout(() => router.replace('/send'), 500);
