@@ -4,6 +4,8 @@ export function middleware(req: NextRequest) {
   const authToken = req.cookies.get("authToken")?.value;
   const { pathname } = req.nextUrl;
 
+  console.log('authToken:', authToken)
+
   // If the user is logged in, redirect /connect/login and /connect/signup to /profile
   if (
     authToken === "authenticated" &&

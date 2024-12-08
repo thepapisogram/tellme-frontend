@@ -24,7 +24,6 @@ export default function Home() {
       setRes(response.data);
       if (response.data === "Successfully Logged In") {
         Cookies.set("username", username, { expires: 30 }); // expires after 30 days
-        console.log(response.data);
         setTimeout(() => router.push("/profile"), 1000); // Redirect to profile on success
       }
     } catch (error) {

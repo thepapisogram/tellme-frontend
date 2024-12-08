@@ -22,7 +22,7 @@ export default function Home() {
         { withCredentials: true } // Ensures cookies are included
       );
       setRes(response.data);
-      if (response.data === "Successfully Logged In") {
+      if (response.data === "Successfully Signed Up") {
         Cookies.set("username", username, { expires: 30 }); // expires after 30 days
         setTimeout(() => router.push("/profile"), 1000); // Redirect to profile on success
       }
