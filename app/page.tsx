@@ -31,7 +31,7 @@ export default function Home() {
         <div className="grid grid-cols-2 gap-3 mt-8">
           <button onClick={showModal} className="page-btn">
             <i className="flex items-center fi fi-rs-guide-alt"></i>
-            Getting Started
+            Get Started
           </button>
           {isLoggedIn ? (
             <Link href="/profile/" className="page-btn">
