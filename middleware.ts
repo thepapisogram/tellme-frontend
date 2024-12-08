@@ -18,7 +18,7 @@ export function middleware(req: NextRequest) {
     pathname.startsWith("/_next") || // Next.js static files (JS, CSS)
     pathname.startsWith("/app/data") || // API routes
     pathname.startsWith("/public") || // Favicon
-    pathname === "/dark.png" || // Allow login page
+    pathname.endsWith(".png") || // Allow /public/*.png
     pathname === "/connect/login" || // Allow login page
     pathname === "/connect/signup" || // Allow signup page
     pathname.startsWith("/send") || // Allow send pages
