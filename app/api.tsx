@@ -1,5 +1,5 @@
-const host = `http://localhost:4000/`;
-// const host = `https://tellme-backend.vercel.app/`;
+// const host = `http://localhost:4000/`;
+const host = `https://tellme-backend.vercel.app/`;
 
 const api = {
   pre: `Hey! I'd love to hear from you—send me an anonymous message using this link. Don’t worry, I won’t know it’s you. 😊`,
