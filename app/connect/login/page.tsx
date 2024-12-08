@@ -21,11 +21,11 @@ export default function Home() {
         { username, password },
         { withCredentials: true } // Ensures cookies are included
       );
-      setRes(response.data);
-      if (response.data === "Successfully Logged In") {
+      if (response.status === 200 && response.data.token) {
+        Cookies.set("token", response.data.token, { expires: 30 }); // expires after 30 days
         Cookies.set("username", username, { expires: 30 }); // expires after 30 days
         setTimeout(() => router.push("/profile"), 1000); // Redirect to profile on success
-      }
+      }else setRes(response.data);
     } catch (error) {
       console.log("An Error Occurred", error);
     }

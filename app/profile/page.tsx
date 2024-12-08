@@ -41,12 +41,9 @@ export default function Home() {
 
   const handleLogout = async () => {
     try {
-      await axios.post(
-        api.connect.logout,
-        {},
-        { withCredentials: true }
-      );
-      Cookies.remove('username');
+      await axios.post(api.connect.logout, {}, { withCredentials: true });
+      Cookies.remove("username");
+      Cookies.remove("token");
       router.push("/"); // Redirect to homepage after logout
     } catch (err) {
       console.error("Logout failed", err);
