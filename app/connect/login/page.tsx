@@ -5,7 +5,6 @@ import axios from "axios";
 import Link from "next/link";
 import Cookies from 'js-cookie';
 import api from "@/app/api";
-import Image from "next/image";
 import Logo from "@/app/components/logo";
 
 export default function Home() {

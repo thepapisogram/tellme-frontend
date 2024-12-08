@@ -12,8 +12,8 @@ export default function GetStarted({
             Using your Profile Link
           </p>
           <p className="text-white opacity-70">
-            You can copy your profile link using the "Copy Link" button. You can
-            then share this link to friends.
+            You can copy your profile link using the &quot;Copy Link&quot;
+            button. You can then share this link to friends.
           </p>
         </div>
         <div className="my-2">

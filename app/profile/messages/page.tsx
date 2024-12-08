@@ -18,8 +18,8 @@ export default function Home() {
         setMessages(response.data);
       }
     }
-    fetchMessages();
-  }, []);
+    setInterval(fetchMessages, 3000); // refresh every 3s
+  }, [username]);
 
   return (
     <main className="page">
