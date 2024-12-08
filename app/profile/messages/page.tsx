@@ -6,10 +6,11 @@ import api from "@/app/api";
 import axios from "axios";
 import Logo from "@/app/components/logo";
 
+
 export default function Home() {
 
   const [username] = useState(Cookies.get('username'));
-  const [messages, setMessages] = useState<Array<any>>([]);
+  const [messages, setMessages] = useState<Array<unknown>>([]);
   
   useEffect(() => {
     const fetchMessages = async () => {
