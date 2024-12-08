@@ -5,11 +5,11 @@ import axios from "axios";
 import api from "@/app/api";
 import Logo from "@/app/components/logo";
 
-export default function Home({ params }: { params: Promise<{ slug: string }> }) {
+export default function Home({ params }) {
   const router = useRouter();
   const resolvedParams = use(params);
-  const [username] = useState<string>(resolvedParams.user);
-  const [message, setMessage] = useState<string>("");
+  const [username] = useState(resolvedParams.user);
+  const [message, setMessage] = useState("");
 
   // Redirect to Homepage if user does not exist
   // Hence cannot receive message
