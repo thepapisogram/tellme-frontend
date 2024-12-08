@@ -10,7 +10,7 @@ import Logo from "@/app/components/logo";
 export default function Home() {
 
   const [username] = useState(Cookies.get('username'));
-  const [messages, setMessages] = useState<Array<unknown>>([]);
+  const [messages, setMessages] = useState([]);
   
   useEffect(() => {
     const fetchMessages = async () => {
