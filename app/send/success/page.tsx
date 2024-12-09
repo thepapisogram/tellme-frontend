@@ -18,7 +18,7 @@ export default function Home() {
   const username = Cookies.get('temp');
 
   if(!username){
-      setTimeout(() => router.replace('/send'), 500);
+      setTimeout(() => router.push('/send'), 500);
   }
 
 

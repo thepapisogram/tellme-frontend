@@ -6,6 +6,8 @@ import Link from "next/link";
 import Cookies from 'js-cookie';
 import api from "@/app/api";
 import Logo from "@/app/components/logo";
+import Loader from "@/app/components/loader";
+import Res from "@/app/components/res";
 
 export default function Home() {
 
@@ -13,20 +15,28 @@ export default function Home() {
   const [res, setRes] = useState<string>("Create a new account");
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
 
   const signup = async () => {
+    setLoading(true);
     try {
       const response = await axios.post(
         api.connect.signup,
         { username, password },
         { withCredentials: true } // Ensures cookies are included
       );
-      if (response.status === 200 && response.data.token) {
+      if (response.status === 200 && response.data?.token) {
+        setLoading(false);
+        setRes("Successfully Signed Up");
         Cookies.set("token", response.data.token, { expires: 30 }); // expires after 30 days
         Cookies.set("username", username, { expires: 30 }); // expires after 30 days
         setTimeout(() => router.push("/profile"), 1000); // Redirect to profile on success
-      } else setRes(response.data);
+      } else{
+        setLoading(false);
+        setRes(response.data);
+      };
     } catch (error) {
+        setLoading(false);
       console.log("An Error Occurred", error);
     }
   }
@@ -41,16 +51,17 @@ export default function Home() {
         className="page-container"
       >
         <Logo />
-        <p className="connect-subtitle">{res}</p>
+        <Loader show={loading} />
+        <Res res={res} show={!loading} />
         <div className="connect-label-container">
           <label className="connect-label">
             <i className="connect-input-icon fi fi-rr-user"></i>
             <input
               type="text"
-              className="connect-input"
+              className="connect-input lower"
               placeholder="Username"
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => setUsername(e.target.value.toLocaleLowerCase())}
               required
             />
           </label>
@@ -66,13 +77,13 @@ export default function Home() {
             />
           </label>
         </div>
-        <button className="connect-submit">Sign Up</button>
+        <button className="connect-submit" disabled={loading}>
+          Sign Up
+        </button>
         <Link className="connect-option" href="/connect/login">
           Log In Instead?
         </Link>
-        <p className="connect-footer">
-          Developed by Anthony Saah
-        </p>
+        <p className="connect-footer">Developed by Anthony Saah</p>
       </form>
     </main>
   );

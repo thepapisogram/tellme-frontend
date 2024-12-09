@@ -16,6 +16,7 @@ const api = {
   user: {
     verify: `${host}user/verify/`,
     messages: `${host}send/`,
+    clearMessages: `${host}send/`
   },
 };
 

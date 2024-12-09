@@ -26,7 +26,7 @@
     @apply flex items-center justify-center text-orange-600 p-1;
 }
 .connect-submit{
-    @apply text-white bg-orange-900 hover:bg-orange-950 w-full py-3 rounded-full transition-all;
+    @apply text-white bg-orange-900 hover:bg-orange-950 disabled:bg-orange-950 disabled:opacity-50 w-full py-3 rounded-full transition-all;
 }
 .connect-option{
     @apply block antialiased w-max tracking-widest text-orange-500 font-bold opacity-70 hover:opacity-100 text-center mt-3 mx-auto transition-all;
@@ -58,15 +58,24 @@
 }
 
 /* Messages */
+.message-page{
+    @apply bg-zinc-900 backdrop-blur-md rounded-xl shadow-lg p-5 md:p-10 pb-5 my-auto mx-auto w-11/12 md:w-10/12 lg:w-9/12 xl:w-7/12 h-max;
+}
 .messages-container{
-    @apply flex flex-col gap-5 md:grid md:grid-cols-2 xl:grid-cols-3 overflow-y-scroll h-max max-h-[330px] md:max-h-[370px];
+    @apply flex flex-col gap-4 p-2 md:grid md:grid-cols-2 xl:grid-cols-3 overflow-y-scroll h-max max-h-[340px] md:max-h-[370px];
 }
 .message{
-    @apply flex flex-col justify-center p-5 bg-orange-800 w-full h-full rounded-xl drop-shadow-md
+    @apply flex flex-col justify-center p-5 bg-orange-950 w-full rounded-xl drop-shadow-md
 }
 .message-time{
     @apply text-xs text-center text-white opacity-50 mb-1;
 }
 .message-text{
     @apply text-zinc-100 antialiased opacity-90 text-center;
+}
+.message-bar{
+    @apply flex items-center justify-center mt-2 gap-x-3;
+}
+.message-option{
+    @apply antialiased text-orange-500 opacity-70 hover:opacity-100 text-center transition-all;
 }
