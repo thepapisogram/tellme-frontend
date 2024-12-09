@@ -64,6 +64,7 @@ export default function Home({ params }) {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             required
+            disabled={loading}
           ></textarea>
         </div>
         <button className="connect-submit" disabled={loading}>Send Message</button>

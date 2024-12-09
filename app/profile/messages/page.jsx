@@ -22,7 +22,7 @@ export default function Home() {
       }
     }
     fetchMessages();
-    setInterval(fetchMessages, 3000); // refresh every 3s
+    setInterval(fetchMessages, 5000); // refresh every 5s
   }, [username]);
 
   const clearMessages = () => {
