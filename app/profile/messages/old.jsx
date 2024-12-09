@@ -4,6 +4,7 @@ import Cookies from "js-cookie";
 import Link from "next/link";
 import api from "@/app/api";
 import axios from "axios";
+import domtoimage from 'dom-to-image'
 import Logo from "@/app/components/logo";
 
 
@@ -40,10 +41,40 @@ export default function Home() {
     });
   }
 
+  const takeScreenshotAndShare = async (index) => {
+    const element = document.getElementById(`message-${index}`);
+
+    if (!element) {
+      alert("Element not found!");
+      return;
+    }
+
+    try {
+      // Convert the element to an image
+      const dataUrl = await domtoimage.toPng(element);
+
+      // Share the image if the device supports it
+      if (navigator.share) {
+        const blob = await (await fetch(dataUrl)).blob();
+        const file = new File([blob], "screenshot.png", { type: "image/png" });
+
+        await navigator.share({
+          files: [file],
+          title: "Anonymous Message",
+          text: "Here's a message I received!",
+        });
+      } else {
+        alert("Sharing is not supported on this device.");
+      }
+    } catch (error) {
+      console.error("Error capturing screenshot or sharing:", error);
+    }
+  };
+
   return (
     <main className="page">
-      <div className="hidden flex-col items-center justify-center fixed top-0 left-0 w-svw h-svh bg-zinc-900 z-10">
-        <Logo width={150} />
+      <div className="flex flex-col items-center justify-center fixed top-0 left-0 w-svw h-svh bg-zinc-900 z-10">
+        <Logo width={100} />
         <span className="text-7xl text-orange-700 mr-auto ml-10 rotate-180">
           &quot;
         </span>
@@ -75,6 +106,7 @@ export default function Home() {
               <div
                 className="flex items-center"
                 key={index}
+                onClick={() => takeScreenshotAndShare(index)}
               >
                 <div id={`message-${index}`} className="message">
                   <p className="message-time">{message.date}</p>
