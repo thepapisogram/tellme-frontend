@@ -65,7 +65,7 @@
     @apply flex flex-col gap-4 p-2 md:grid md:grid-cols-2 xl:grid-cols-3 overflow-y-scroll h-max max-h-[340px] md:max-h-[370px];
 }
 .message{
-    @apply flex flex-col justify-center p-5 bg-orange-950 w-full rounded-xl drop-shadow-md
+    @apply flex flex-col justify-center p-5 bg-orange-950 w-full rounded-xl drop-shadow-md max-w-80;
 }
 .message-time{
     @apply text-xs text-center text-white opacity-50 mb-1;
