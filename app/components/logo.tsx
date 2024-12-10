@@ -5,10 +5,10 @@ export default function Logo({ size }:{size?:number}) {
     <div className="flex justify-center w-full h-full">
       <Image
         src="/dark.webp"
-        className="rounded-badge w-auto h-auto"
+        className="rounded-badge"
         alt="image"
         width={size || 200}
-        height={100}
+        height={size || 200}
         priority
         quality={100}
       />
