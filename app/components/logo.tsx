@@ -8,7 +8,7 @@ export default function Logo({ size }:{size?:number}) {
         className="rounded-badge w-auto h-auto"
         alt="image"
         width={size || 200}
-        height={size || 200}
+        height={200}
         priority
         quality={100}
       />
