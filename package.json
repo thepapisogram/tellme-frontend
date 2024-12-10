@@ -11,10 +11,9 @@
   "dependencies": {
     "@flaticon/flaticon-uicons": "^3.3.1",
     "axios": "^1.7.9",
-    "canvas2image": "^1.0.5",
     "clsx": "^2.1.1",
     "dom-to-image": "^2.6.0",
-    "html2canvas": "^1.4.1",
+    "html-to-image": "^1.11.11",
     "js-cookie": "^3.0.5",
     "jsonwebtoken": "^9.0.2",
     "next": "15.0.3",

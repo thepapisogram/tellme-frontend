@@ -4,7 +4,8 @@ import Cookies from "js-cookie";
 import Link from "next/link";
 import api from "@/app/api";
 import axios from "axios";
-import domtoimage from 'dom-to-image'
+// import domtoimage from 'dom-to-image'
+import { toPng } from "html-to-image";
 import clsx from "clsx";
 import Logo from "@/app/components/logo";
 
@@ -45,58 +46,91 @@ export default function Home() {
   }
 
   const snapAndShare = async (message) => {
-    setSnapText(message);
     setSnapShow(true);
-    console.log("about to share");
-    const element = document.getElementById(`preview`);
+    setSnapText(message);
+    const element = document.getElementById("preview");
 
-    if (!element) {
-      console.error("Element with ID 'preview' not found.");
-      setSnapShow(false);
-      return;
-    }
+    setTimeout(async () => {
+      try {
+      // Generate the image as a PNG
+      const dataUrl = await toPng(element, { quality: 1, pixelRatio: 3 });
 
-    try {
-      // Get the original dimensions of the element
-      const { width, height } = element.getBoundingClientRect();
-
-      const options = {
-        width: width, // Use the original width
-        height: height, // Use the original height
-        scale: 1, // Set scale to 1 to avoid resizing
-        style: {
-          transform: "scale(1)", // Avoid scaling the element
-          transformOrigin: "top left", // Reset origin
-        },
-      };
-
-      // Convert the element to an image
-      const dataURL = await domtoimage.toPng(element, options);
-
-      // Convert the dataURL to a blob for sharing
-      const response = await fetch(dataURL);
+      // Convert the data URL to a Blob
+      const response = await fetch(dataUrl);
       const blob = await response.blob();
 
-      // Share the image using the Web Share API
+      // Use the Web Share API to share the image
       if (navigator.share) {
         await navigator.share({
           files: [
             new File([blob], "screenshot.png", {
               type: "image/png",
             }),
-          ]
+          ],
         });
         setSnapShow(false);
         console.log("Shared successfully!");
       } else {
         setSnapShow(false);
-        console.error("Web Share API not supported.");
+        console.error("Web Share API is not supported on this browser.");
       }
     } catch (error) {
       setSnapShow(false);
-      console.error("Error capturing or sharing screenshot:", error);
+      console.error("Error generating or sharing the image:", error);
     }
+    },100)
   };
+
+  // Below is if using dom-to-image
+  // const snapAndShare = async (message) => {
+  //   setSnapText(message);
+  //   setSnapShow(true);
+  //   console.log("about to share");
+  //   const element = document.getElementById(`preview`);
+
+  //   if (!element) {
+  //     console.error("Element with ID 'preview' not found.");
+  //     setSnapShow(false);
+  //     return;
+  //   }
+
+  //   try {
+  //     // Get the original dimensions of the element
+  //     const { width, height } = element.getBoundingClientRect();
+
+  //     const options = {
+  //       width: width, // Use the original width
+  //       height: height, // Use the original height
+  //       scale: 1, // Set scale to 1 to avoid resizing
+  //     };
+
+  //     // Convert the element to an image
+  //     const dataURL = await domtoimage.toPng(element, options);
+
+  //     // Convert the dataURL to a blob for sharing
+  //     const response = await fetch(dataURL);
+  //     const blob = await response.blob();
+
+  //     // Share the image using the Web Share API
+  //     if (navigator.share) {
+  //       await navigator.share({
+  //         files: [
+  //           new File([blob], "screenshot.png", {
+  //             type: "image/png",
+  //           }),
+  //         ]
+  //       });
+  //       setSnapShow(false);
+  //       console.log("Shared successfully!");
+  //     } else {
+  //       setSnapShow(false);
+  //       console.error("Web Share API not supported.");
+  //     }
+  //   } catch (error) {
+  //     setSnapShow(false);
+  //     console.error("Error capturing or sharing screenshot:", error);
+  //   }
+  // };
 
   return (
     <main className="page" id="test">
@@ -111,13 +145,12 @@ export default function Home() {
         id="preview"
       >
         <div className="text-center w-full">
-          <div className="opacity-40 mb-5">
+          <div className="mb-5">
             <Logo />
           </div>
-          <i className="flex items-center justify-end text-4xl text-orange-900 fi fi-sr-quote-right"></i>
-          <p className="text-orange-800 w-full text-2xl my-5">{snapText}</p>
-          <i className="flex items-center justify-end text-4xl text-orange-900 rotate-180 fi fi-sr-quote-right"></i>
-          <p className="preview-footer">Developed by Anthony Saah</p>
+          <i className="antialiased flex items-center justify-end text-4xl text-orange-900 fi fi-sr-quote-right"></i>
+          <p className="antialiased text-orange-500 drop-shadow-md w-full text-2xl my-5">{snapText}</p>
+          <i className="antialiased flex items-center justify-end text-4xl text-orange-900 rotate-180 fi fi-sr-quote-right"></i>
         </div>
       </div>
       <div className="message-page">

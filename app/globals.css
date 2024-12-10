@@ -85,5 +85,5 @@
 
 /* Preview */
 .preview-footer{
-    @apply text-white opacity-20 mt-10 block w-full cursor-default;
+    @apply hidden text-white antialiased opacity-20 mt-10 w-full cursor-default;
 }

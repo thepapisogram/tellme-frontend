@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "Connect with friends in a unique way—send and receive anonymous messages with ease. Share your profile link and uncover their thoughts, all while staying anonymous and secure.",
   authors: [{ name: "Anthony Saah", url: "https://anthonysaah.netlify.app/" }],
-  icons: "/favicon.png",
+  icons: "/favicon.webp",
   keywords: "tellme, tell me, anonymous messaging, fun messaging, tellme anonymous messaging, tellme anonymous feedback, anonymous feedback, fun feedback, tellme anthony, tellme saah, tellme anthony saah, anthony saah, tell me"
 };
 
