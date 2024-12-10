@@ -13,7 +13,6 @@ export default function Home({ params }) {
   const resolvedParams = use(params);
   const [username] = useState(resolvedParams.user);
   const [message, setMessage] = useState("");
-  const [complete, setComplete] = useState(false);
   const [loading, setLoading] = useState(false);
 
   // Redirect to Homepage if user does not exist
