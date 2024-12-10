@@ -35,7 +35,6 @@
     @apply text-white opacity-50 mt-3 block w-max mx-auto cursor-default;
 }
 
-
 /* Page (universal) */
 .page{
     @apply flex bg-gradient-to-br from-orange-950 to-cyan-950 h-svh w-svw;
@@ -65,7 +64,7 @@
     @apply flex flex-col gap-4 p-2 md:grid md:grid-cols-2 xl:grid-cols-3 overflow-y-scroll h-max max-h-[340px] md:max-h-[370px];
 }
 .message{
-    @apply flex flex-col justify-center p-5 bg-orange-950 w-full rounded-xl drop-shadow-md max-w-80;
+    @apply flex flex-col justify-center p-5 pb-8 bg-orange-950 w-full rounded-xl drop-shadow-md;
 }
 .message-time{
     @apply text-xs text-center text-white opacity-50 mb-1;
@@ -73,9 +72,18 @@
 .message-text{
     @apply text-zinc-100 antialiased opacity-90 text-center;
 }
+.message-btn{
+    @apply text-lg text-white text-right opacity-50 hover:opacity-100 transition-all
+}
 .message-bar{
     @apply flex items-center justify-center mt-2 gap-x-3;
 }
 .message-option{
     @apply antialiased text-orange-500 opacity-70 hover:opacity-100 text-center transition-all;
+}
+
+
+/* Preview */
+.preview-footer{
+    @apply text-white opacity-20 mt-10 block w-full cursor-default;
 }

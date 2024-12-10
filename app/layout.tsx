@@ -4,7 +4,6 @@ import "./globals.css";
 
 const instrument = Instrument_Sans({ weight: "400", subsets: ['latin']});
 
-
 export const metadata: Metadata = {
   title: "Tell Me | Anonymous Messaging",
   description:

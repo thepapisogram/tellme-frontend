@@ -37,6 +37,7 @@ export function middleware(req: NextRequest) {
     pathname.startsWith("/api") || // Allow API routes
     pathname.startsWith("/public") || // Allow public files
     pathname.endsWith(".png") || // Allow PNG files
+    pathname.endsWith(".jpg") || // Allow JPG files
     pathname === "/connect/login" || // Allow login page
     pathname === "/connect/signup" || // Allow signup page
     pathname.startsWith("/send") || // Allow "send" pages
