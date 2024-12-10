@@ -53,7 +53,7 @@ export default function Home() {
     setTimeout(async () => {
       try {
       // Generate the image as a PNG
-      const dataUrl = await toPng(element, { quality: 1, pixelRatio: 3 });
+      const dataUrl = await toPng(element, { quality: 1, pixelRatio: 5 });
 
       // Convert the data URL to a Blob
       const response = await fetch(dataUrl);
@@ -133,26 +133,27 @@ export default function Home() {
   // };
 
   return (
-    <main className="page" id="test">
-      <div
-        className={clsx(
-          "items-center fixed top-0 left-0 w-full h-full bg-zinc-900 z-10 p-10",
-          {
-            "flex": snapShow,
-            "hidden": !snapShow
-          }
-        )}
-        id="preview"
-      >
-        <div className="text-center w-full">
-          <div className="mb-5">
-            <Logo />
-          </div>
-          <i className="antialiased flex items-center justify-end text-4xl text-orange-900 fi fi-sr-quote-right"></i>
-          <p className="antialiased text-orange-500 drop-shadow-md w-full text-2xl my-5">{snapText}</p>
-          <i className="antialiased flex items-center justify-end text-4xl text-orange-900 rotate-180 fi fi-sr-quote-right"></i>
+    <>
+    <div
+      className={clsx(
+        "items-center fixed top-0 left-0 w-full h-full bg-zinc-900 -z-10 p-10",
+        {
+          "flex": snapShow,
+          "hidden": !snapShow
+        }
+      )}
+      id="preview"
+    >
+      <div className="text-center w-full">
+        <div className="mb-5">
+          <Logo />
         </div>
+        <i className="antialiased flex items-center justify-end text-4xl text-orange-900 fi fi-sr-quote-right"></i>
+        <p className="antialiased text-orange-500 drop-shadow-md w-full text-2xl my-5">{snapText}</p>
+        <i className="antialiased flex items-center justify-end text-4xl text-orange-900 rotate-180 fi fi-sr-quote-right"></i>
       </div>
+    </div>
+    <main className="page z-10" id="test">
       <div className="message-page">
         <div className="mb-4">
           <Logo />
@@ -203,5 +204,6 @@ export default function Home() {
         </div>
       </div>
     </main>
+    </>
   );
 }
