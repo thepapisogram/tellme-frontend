@@ -63,7 +63,7 @@ export default function Home() {
       const options = {
         width: width, // Use the original width
         height: height, // Use the original height
-        scale: 5, // Set scale to 1 to avoid resizing
+        scale: 1, // Set scale to 1 to avoid resizing
         style: {
           transform: "scale(1)", // Avoid scaling the element
           transformOrigin: "top left", // Reset origin
