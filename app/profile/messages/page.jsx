@@ -4,8 +4,7 @@ import Cookies from "js-cookie";
 import Link from "next/link";
 import api from "@/app/api";
 import axios from "axios";
-// import domtoimage from 'dom-to-image'
-import { toPng } from "html-to-image";
+import { toJpeg } from "html-to-image";
 import clsx from "clsx";
 import Logo from "@/app/components/logo";
 
@@ -27,7 +26,7 @@ export default function Home() {
       }
     }
     fetchMessages();
-    const interval = setInterval(fetchMessages, 5000); // refresh every 5s
+    const interval = setInterval(fetchMessages, 30000); // refresh every 30s
     return () => clearInterval(interval);
   }, [username]);
 
@@ -52,8 +51,8 @@ export default function Home() {
 
     setTimeout(async () => {
       try {
-      // Generate the image as a PNG
-      const dataUrl = await toPng(element, { quality: 1, pixelRatio: 5 });
+      
+      const dataUrl = await toJpeg(element, { quality: 1, pixelRatio: 3 });
 
       // Convert the data URL to a Blob
       const response = await fetch(dataUrl);
@@ -63,8 +62,8 @@ export default function Home() {
       if (navigator.share) {
         await navigator.share({
           files: [
-            new File([blob], "screenshot.png", {
-              type: "image/png",
+            new File([blob], "screenshot.jpeg", {
+              type: "image/jpeg",
             }),
           ],
         });
@@ -80,57 +79,6 @@ export default function Home() {
     }
     },100)
   };
-
-  // Below is if using dom-to-image
-  // const snapAndShare = async (message) => {
-  //   setSnapText(message);
-  //   setSnapShow(true);
-  //   console.log("about to share");
-  //   const element = document.getElementById(`preview`);
-
-  //   if (!element) {
-  //     console.error("Element with ID 'preview' not found.");
-  //     setSnapShow(false);
-  //     return;
-  //   }
-
-  //   try {
-  //     // Get the original dimensions of the element
-  //     const { width, height } = element.getBoundingClientRect();
-
-  //     const options = {
-  //       width: width, // Use the original width
-  //       height: height, // Use the original height
-  //       scale: 1, // Set scale to 1 to avoid resizing
-  //     };
-
-  //     // Convert the element to an image
-  //     const dataURL = await domtoimage.toPng(element, options);
-
-  //     // Convert the dataURL to a blob for sharing
-  //     const response = await fetch(dataURL);
-  //     const blob = await response.blob();
-
-  //     // Share the image using the Web Share API
-  //     if (navigator.share) {
-  //       await navigator.share({
-  //         files: [
-  //           new File([blob], "screenshot.png", {
-  //             type: "image/png",
-  //           }),
-  //         ]
-  //       });
-  //       setSnapShow(false);
-  //       console.log("Shared successfully!");
-  //     } else {
-  //       setSnapShow(false);
-  //       console.error("Web Share API not supported.");
-  //     }
-  //   } catch (error) {
-  //     setSnapShow(false);
-  //     console.error("Error capturing or sharing screenshot:", error);
-  //   }
-  // };
 
   return (
     <>

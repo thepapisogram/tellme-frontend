@@ -1,9 +1,10 @@
 "use client"
 import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
 import Cookies from "js-cookie";
 import Logo from "./components/logo";
 import GetStarted from "./components/get-started";
+import PortfolioLink from "./components/portfolio-link";
+import ButtonLink from "./components/button-link";
 
 export default function Home() {
 
@@ -26,33 +27,24 @@ export default function Home() {
       <div className="page-container-wider">
         <div>
           <Logo />
-          <p className="connect-subtitle">Anonymous Messaging & Feedback</p>
+          <p className="page-orange-txt mt-2">Anonymous Messaging & Feedback</p>
         </div>
-        <div className="grid grid-cols-2 gap-3 mt-8">
+        <div className="grid grid-cols-2 gap-3 my-5">
           <button onClick={showModal} className="page-btn">
-            <i className="flex items-center fi fi-rs-guide-alt"></i>
-            Get Started
+            <i className="flex items-center fi fi-ss-guide-alt"></i>
+            How to use
           </button>
           {isLoggedIn ? (
-            <Link href="/profile/" className="page-btn">
-              <i className="flex items-center fi fi-sr-user-skill-gear"></i>
-              View Profile
-            </Link>
+            <ButtonLink text="My Profile" link="/profile" icon="fi-ss-user" />
           ) : (
-            <Link href="/connect/login" className="page-btn">
-              <i className="flex items-center fi fi-rr-user-add"></i>
-              Join Tell Me
-            </Link>
+            <ButtonLink
+              text="Sign Up"
+              link="/connect/signup"
+              icon="fi-sr-user-add"
+            />
           )}
         </div>
-        <div>
-          <Link
-            href="https://anthonysaah.netlify.app/"
-            className="connect-footer"
-          >
-            Developed by Anthony Saah
-          </Link>
-        </div>
+        <PortfolioLink />
       </div>
 
       <GetStarted dataRef={modalRef} />

@@ -30,7 +30,7 @@ export default function Home() {
               className="connect-input"
               placeholder="Username"
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => setUsername(e.target.value.toLocaleLowerCase().split(' ').join(''))}
               required
             />
           </label>

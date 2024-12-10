@@ -13,6 +13,7 @@ export default function Home({ params }) {
   const resolvedParams = use(params);
   const [username] = useState(resolvedParams.user);
   const [message, setMessage] = useState("");
+  const [complete, setComplete] = useState(false);
   const [loading, setLoading] = useState(false);
 
   // Redirect to Homepage if user does not exist
@@ -34,7 +35,6 @@ export default function Home({ params }) {
       .post(`${api.send.message}${username}`, { message })
       .then((res) => {
         if(res.data === "sent"){
-          setLoading(false);
           Cookies.set("temp", username);
           router.push(`/send/success`);
         }
@@ -62,10 +62,12 @@ export default function Home({ params }) {
             className="connect-textarea"
             placeholder={`Send an anonymous message to ${username}`}
             value={message}
+            maxLength={250}
             onChange={(e) => setMessage(e.target.value)}
             required
             disabled={loading}
           ></textarea>
+          <p className="opacity-60 text-right text-xs">{`(${message.length}/250)`}</p>
         </div>
         <button className="connect-submit" disabled={loading}>Send Message</button>
         <p className="connect-footer">Developed by Anthony Saah</p>

@@ -1,16 +1,16 @@
 import Image from "next/image";
 
-export default function Logo({ width }:{width?:number}) {
+export default function Logo({ size }:{size?:number}) {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center w-full h-full">
       <Image
         src="/dark.webp"
-        className="rounded-badge"
-        unoptimized
+        className="rounded-badge w-auto h-auto"
         alt="image"
-        width={width || 200}
+        width={size || 200}
+        height={size || 200}
+        priority
         quality={100}
-        height={100}
       />
     </div>
   );

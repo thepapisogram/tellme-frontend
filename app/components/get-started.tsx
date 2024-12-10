@@ -8,19 +8,19 @@ export default function GetStarted({
       <div className="modal-box bg-zinc-900">
         <h3 className="font-bold text-2xl text-orange-600">Getting Started</h3>
         <div className="my-2">
-          <p className="font-bold tracking-wide text-orange-600">
-            Using your Profile Link
+          <p className="started-text">
+            Tell Me is an anonymous messaging platform developed to receive
+            message and feedback anonymously from friends.
           </p>
-          <p className="text-white opacity-70">
+          <p className="started-title">Using your Profile Link</p>
+          <p className="started-text">
             You can copy your profile link using the &quot;Copy Link&quot;
             button. You can then share this link to friends.
           </p>
         </div>
         <div className="my-2">
-          <p className="font-bold tracking-wide text-orange-600">
-            Using Social Links
-          </p>
-          <p className="text-white opacity-70">
+          <p className="started-title">Using Social Links</p>
+          <p className="started-text">
             You can share your link directly to social media platforms using the
             social icons
           </p>

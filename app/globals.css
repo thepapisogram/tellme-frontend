@@ -3,6 +3,16 @@
 @tailwind utilities;
 @import "~@flaticon/flaticon-uicons/css/all/all";
 
+
+
+/* GET STARTED MODAL */
+.started-title{
+    @apply font-bold tracking-wide text-orange-500 mt-4;
+} .started-text{
+    @apply text-white opacity-70 my-0.5
+}
+
+
 /* Connect */
 .connect-title{
     @apply text-3xl text-center text-orange-600 drop-shadow-sm font-bold;
@@ -32,7 +42,7 @@
     @apply block antialiased w-max tracking-widest text-orange-500 font-bold opacity-70 hover:opacity-100 text-center mt-3 mx-auto transition-all;
 }
 .connect-footer{
-    @apply text-white opacity-50 mt-3 block w-max mx-auto cursor-default;
+    @apply text-white opacity-30 mt-3 block w-max mx-auto cursor-default;
 }
 
 /* Page (universal) */
@@ -51,10 +61,19 @@
 .home-container{
     @apply bg-zinc-900 backdrop-blur-md rounded-xl shadow-lg p-5 md:p-10 pb-5 my-auto mx-auto w-11/12 md:w-11/12 lg:w-10/12 xl:w-8/12;
 }
-
-.page-btn{
-    @apply flex items-center gap-x-2 justify-center bg-white bg-opacity-10 text-zinc-200 hover:bg-opacity-50 hover:text-black p-2 rounded transition-all;
+    .page-btn{
+        @apply flex items-center gap-x-2 justify-center bg-orange-700 text-orange-600 bg-opacity-5 hover:bg-opacity-100 font-bold hover:text-black p-2 rounded-badge transition-all;
+} .page-btn-alt{
+    @apply w-max flex items-center gap-x-2 justify-center text-white opacity-40 hover:opacity-80 font-bold tracking-widest transition-all;
 }
+.page-orange-txt{
+    @apply font-bold tracking-wide text-center text-orange-700;
+}
+.portfolio-link{
+    @apply block w-max mx-auto text-white opacity-20 hover:opacity-50 transition-all;
+}
+
+
 
 /* Messages */
 .message-page{
@@ -64,7 +83,7 @@
     @apply flex flex-col gap-4 p-2 md:grid md:grid-cols-2 xl:grid-cols-3 overflow-y-scroll h-max max-h-[340px] md:max-h-[370px];
 }
 .message{
-    @apply flex flex-col justify-center p-5 pb-8 bg-orange-950 w-full rounded-xl drop-shadow-md;
+    @apply flex flex-col justify-center p-5 pb-8 bg-orange-900 w-full rounded-xl drop-shadow-md;
 }
 .message-time{
     @apply text-xs text-center text-white opacity-50 mb-1;
@@ -79,7 +98,7 @@
     @apply flex items-center justify-center mt-2 gap-x-3;
 }
 .message-option{
-    @apply antialiased text-orange-500 opacity-70 hover:opacity-100 text-center transition-all;
+    @apply flex items-center gap-x-2 px-4 justify-center bg-orange-700 text-orange-600 bg-opacity-5 hover:bg-opacity-100 font-bold hover:text-black p-2 rounded-badge transition-all;
 }
 
 

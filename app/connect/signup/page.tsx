@@ -61,7 +61,12 @@ export default function Home() {
               className="connect-input lower"
               placeholder="Username"
               value={username}
-              onChange={(e) => setUsername(e.target.value.toLocaleLowerCase())}
+              maxLength={25}
+              onChange={(e) =>
+                setUsername(
+                  e.target.value.toLocaleLowerCase().split(" ").join("")
+                )
+              }
               required
             />
           </label>
@@ -72,7 +77,11 @@ export default function Home() {
               className="connect-input"
               placeholder="Password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) =>
+                setPassword(
+                  e.target.value
+                )
+              }
               required
             />
           </label>
