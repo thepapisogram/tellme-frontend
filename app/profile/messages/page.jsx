@@ -84,7 +84,7 @@ export default function Home() {
     <>
     <div
       className={clsx(
-        "items-center fixed top-0 left-0 w-full h-full bg-zinc-900 -z-10 p-10",
+        "items-center absolute top-0 left-0 w-full h-full bg-zinc-900 -z-10 p-10",
         {
           "flex": snapShow,
           "hidden": !snapShow
@@ -129,7 +129,7 @@ export default function Home() {
                       onClick={() => snapAndShare(`${message.message}`)}
                       className="message-btn"
                     >
-                      <i className="flex items-center fi fi-ss-share"></i>
+                      <i className="flex items-center fi fi-sr-share"></i>
                     </button>
                   </div>
                 </div>

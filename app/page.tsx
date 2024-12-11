@@ -35,7 +35,7 @@ export default function Home() {
             How to use
           </button>
           {isLoggedIn ? (
-            <ButtonLink text="My Profile" link="/profile" icon="fi-ss-user" />
+            <ButtonLink text="My Profile" link="/profile" icon="fi-sr-user" />
           ) : (
             <ButtonLink
               text="Sign Up"

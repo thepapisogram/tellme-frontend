@@ -55,7 +55,7 @@ export default function Home() {
         <Res res={res} show={!loading} />
         <div className="connect-label-container">
           <label className="connect-label">
-            <i className="connect-input-icon fi fi-rr-user"></i>
+            <i className="connect-input-icon fi fi-sr-user"></i>
             <input
               type="text"
               className="connect-input"
@@ -71,7 +71,7 @@ export default function Home() {
             />
           </label>
           <label className="connect-label">
-            <i className="connect-input-icon fi fi-rr-lock"></i>
+            <i className="connect-input-icon fi fi-sr-lock"></i>
             <input
               type="password"
               className="connect-input"

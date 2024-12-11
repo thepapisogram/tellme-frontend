@@ -81,7 +81,7 @@ export default function Home() {
           />
           <ButtonFunction
             text="Logout"
-            icon="fi-bs-power"
+            icon="fi-sr-power"
             click={handleLogout}
           />
         </div>

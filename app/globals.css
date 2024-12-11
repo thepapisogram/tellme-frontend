@@ -1,8 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "~@flaticon/flaticon-uicons/css/all/all";
-
+@import "~@flaticon/flaticon-uicons/css/brands/all";
+@import "~@flaticon/flaticon-uicons/css/solid/all";
 
 
 /* GET STARTED MODAL */
@@ -11,7 +11,6 @@
 } .started-text{
     @apply text-white opacity-70 my-0.5
 }
-
 
 /* Connect */
 .connect-title{
