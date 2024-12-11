@@ -23,14 +23,14 @@ export default function Home() {
       const response = await axios.post(
         api.connect.signup,
         { username, password },
-        { withCredentials: true } // Ensures cookies are included
+        { withCredentials: true } // ps: add cookies for requests
       );
       if (response.status === 200 && response.data?.token) {
         setLoading(false);
         setRes("Successfully Signed Up");
-        Cookies.set("token", response.data.token, { expires: 30 }); // expires after 30 days
-        Cookies.set("username", username, { expires: 30 }); // expires after 30 days
-        setTimeout(() => router.push("/profile"), 1000); // Redirect to profile on success
+        Cookies.set("token", response.data.token, { expires: 30 });
+        Cookies.set("username", username, { expires: 30 });
+        setTimeout(() => router.push("/profile"), 1000);
       } else{
         setLoading(false);
         setRes(response.data);

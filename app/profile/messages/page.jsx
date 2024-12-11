@@ -54,11 +54,9 @@ export default function Home() {
       
       const dataUrl = await toJpeg(element, { quality: 1, pixelRatio: 3 });
 
-      // Convert the data URL to a Blob
       const response = await fetch(dataUrl);
       const blob = await response.blob();
-
-      // Use the Web Share API to share the image
+      
       if (navigator.share) {
         await navigator.share({
           files: [
